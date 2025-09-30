@@ -7,7 +7,7 @@ import (
 )
 
 type Factory[K comparable, V any] interface {
-	Get(K, func() (*V, error)) (*V, error)
+	Get(key K, builder func() (*V, error)) (*V, error)
 }
 
 func NewFactory[K comparable, V any]() Factory[K, V] {
